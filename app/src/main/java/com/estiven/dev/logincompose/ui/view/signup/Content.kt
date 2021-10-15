@@ -24,10 +24,10 @@ import com.estiven.dev.logincompose.ui.viewmodel.LoginViewModel
 
 @Composable
 fun Content(navController: NavController, viewModel: LoginViewModel) {
-    var fullName by remember { mutableStateOf("") }
-    var email by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    var confirmPassword by remember { mutableStateOf("") }
+    val fullName by remember { mutableStateOf("") }
+    val email by remember { mutableStateOf("") }
+    val password by remember { mutableStateOf("") }
+    val confirmPassword by remember { mutableStateOf("") }
     Column(
         modifier = Modifier.fillMaxWidth()
     ) {
