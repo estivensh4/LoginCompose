@@ -1,16 +1,14 @@
 package com.estiven.dev.logincompose.ui.view.signup
 
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.PersonOutline
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.estiven.dev.logincompose.ui.theme.Shapes
 
@@ -18,9 +16,10 @@ import com.estiven.dev.logincompose.ui.theme.Shapes
 fun CustomTextField(
     icon: ImageVector,
     label: String,
-    value: String
+    value: String,
+    type: KeyboardType,
+    onValueChange: (String) -> Unit,
 ) {
-
     TextField(
         value = value,
         label = {
@@ -29,7 +28,7 @@ fun CustomTextField(
             )
         },
         singleLine = true,
-        onValueChange = { value = it },
+        onValueChange = { onValueChange(it) },
         leadingIcon = {
             Icon(
                 imageVector = icon,
@@ -45,13 +44,9 @@ fun CustomTextField(
             textColor = Color.Black,
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
+        ),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = type
         )
     )
-}
-
-
-@Preview
-@Composable
-fun PreviewCustomTextField() {
-
 }
